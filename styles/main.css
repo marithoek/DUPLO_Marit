@@ -1,0 +1,194 @@
+/*Algemene opmaak voor de body*/
+.body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/*Algemene opmaak voor de spelregels*/
+details {
+  background-color: #453f89;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  color: #fff;
+}
+
+details[open] {
+  background-color: #453f89;
+}
+
+summary {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/*Algemene opmaak voor de tabel en invoervelden*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tbody {
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px solid #4462c3;
+  height: 50px;
+}
+
+.input_vetgedrukt {
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #4462c3;
+  font-size: 16px;
+}
+
+input {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+}
+
+/* Maak de eerste rij sticky aan de bovenkant */
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2; /* Zorg ervoor dat de rij boven andere elementen blijft staan */
+  border-bottom: 1px solid #3449a3;
+  background-color: #fff;
+  height: 40px;
+  vertical-align: bottom;
+}
+
+/* Maak de eerste drie kolommen sticky aan de linkerkant */
+/* Hole kolom */
+th:nth-child(1),
+td:nth-child(1) {
+  min-width: 75px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: #d9e4ff;
+  border: none;
+}
+
+/* Par kolom */
+th:nth-child(2),
+td:nth-child(2) {
+  min-width: 75px;
+  position: sticky;
+  left: 75px;
+  z-index: 1;
+  background-color: #d6f9f9;
+  border: none;
+}
+
+/* Handicap kolom */
+th:nth-child(3),
+td:nth-child(3) {
+  min-width: 75px;
+  position: sticky;
+  left: 150px;
+  z-index: 1;
+  background-color: #c1e1f3;
+  border: none;
+}
+
+/* Extra: Zorg dat de bovenste cellen in de sticky kolommen niet verdwijnen */
+thead th:nth-child(1),
+thead th:nth-child(2),
+thead th:nth-child(3) {
+  z-index: 3; /* Hoger dan beide de sticky kolommen en rij */
+  background-color: #fff;
+}
+
+/*KLEUREN*/
+/* Geef (alleen) de 'spelerskolommen' omstebeurt een andere kleur */
+td:nth-child(odd):not(:nth-child(-n + 3)):not(tr:nth-child(10) *):not(
+    tr:nth-child(20) *
+  ):not(tr:nth-child(21) *) {
+  background-color: #1ebdb5;
+}
+
+/* Geef rijen OUT en IN een andere achtergrondkleur */
+tr:nth-child(10),
+tr:nth-child(20) {
+  background-color: #4462c3;
+  color: #fff;
+}
+
+/* Geef rij TOTAL een andere achtergrondkleur */
+tr:nth-child(21) {
+  background-color: #453f89;
+  color: #fff;
+}
+
+/* Zorg dat de 'sticky-cellen' in de IN en OUT rijen dezelfde kleur krijgen */
+tr:nth-child(10) td:nth-child(-n + 3),
+tr:nth-child(20) td:nth-child(-n + 3),
+tr:nth-child(10) th:nth-child(-n + 3),
+tr:nth-child(20) th:nth-child(-n + 3) {
+  background-color: #4462c3;
+}
+
+/* Zorg dat de 'sticky-cellen' in de TOTAL rij dezelfde kleur krijgen */
+tr:nth-child(21) td:nth-child(-n + 3),
+tr:nth-child(21) th:nth-child(-n + 3) {
+  background-color: #453f89;
+}
+
+/*afbeeldingen */
+/* Standaard verborgen modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 100%;
+  height: 90%;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+/* Wanneer een modal getarget wordt, wordt deze zichtbaar */
+.modal:target {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* De inhoud van de modal */
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+}
+
+/* Afbeelding styling */
+.modal-content img {
+  max-width: 100%;
+  min-width: 400px;
+  height: auto;
+}
+
+/* Sluitknop */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  background: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
